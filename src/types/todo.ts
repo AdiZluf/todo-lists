@@ -18,3 +18,7 @@ export type TodoSummaryProps = {
     completedTodosAmount: number;
     totalTodosAmount: number;
 }
+
+export type TodoFormProps = {
+    handleAddTodo: (todoText: string) => void;
+}

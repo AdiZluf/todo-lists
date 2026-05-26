@@ -16,14 +16,21 @@ export default function App() {
     setTodo(prev => prev.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo));
   }
+  function handleAddTodo(todoText: string) {
+    setTodo((prev) => [...prev, {
+      id: crypto.randomUUID(),
+      completed: false,
+      text: todoText
+    }])
+  }
 
   return (
     <div className="todo-app">
       <TodoHeader></TodoHeader>
       <TodoFilter></TodoFilter>
       <TodoList todos={todos} handleToggleTodo={handleToggleTodo}></TodoList>
-      <TodoForm></TodoForm>
-      <TodoSummary totalTodosAmount={todosAmount} completedTodosAmount={completedTodosAmount}></TodoSummary>
+      <TodoForm handleAddTodo={handleAddTodo}></TodoForm>
+      <TodoSummary totalTodosAmount={todosAmount} completedTodosAmount={completedTodosAmount} ></TodoSummary>
     </div>
   );
 }
