@@ -6,10 +6,12 @@ export type Todo = {
 
 export type TodoItemProps = {
     todo: Todo;
+    handleToggleTodo: (id: string) => void;
 }
 
 export type TodoListProps = {
     todos: Todo[];
+    handleToggleTodo: (id: string) => void;
 }
 
 export type TodoSummaryProps = {

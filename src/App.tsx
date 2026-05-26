@@ -8,19 +8,23 @@ import { mockTodos } from "./data/TodoMock";
 import "./App.css";
 
 export default function App() {
-  const [todos, setTodos] = useState(mockTodos);
+  const [todos, setTodo] = useState(mockTodos);
   const todosAmount = todos.length;
   const completedTodosAmount = todos.filter((todo) => (todo.completed)).length;
+
+  function handleToggleTodo(id: string) {
+    setTodo(prev => prev.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+  }
 
   return (
     <div className="todo-app">
       <TodoHeader></TodoHeader>
       <TodoFilter></TodoFilter>
-      <TodoList todos={todos}></TodoList>
+      <TodoList todos={todos} handleToggleTodo={handleToggleTodo}></TodoList>
       <TodoForm></TodoForm>
       <TodoSummary totalTodosAmount={todosAmount} completedTodosAmount={completedTodosAmount}></TodoSummary>
     </div>
   );
 }
-
 
