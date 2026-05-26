@@ -1,21 +1,11 @@
-import { mockTodos } from '../../data/TodoMock';
-import { TodoFilter } from '../TodoFilter/TodoFilter';
-import { TodoHeader } from '../TodoHeader/TodoHeader';
-import { TodoList } from '../TodoList/TodoList';
-import { TodoSummary } from '../TodoSummary/TodoSummary';
 import './TodoForm.css'
-import { useState } from "react";
-
 
 export function TodoForm() {
-    const [todos, setTodos] = useState(mockTodos);
-
     return (
-        <form className="todo-app">
-            <TodoHeader></TodoHeader>
-            <TodoFilter></TodoFilter>
-            <TodoList todos={todos}></TodoList>
-            <TodoSummary></TodoSummary>
+        <form className="todo-form">
+            <h1 className='add-todo-header'>Add A Todo</h1>
+            <input className='todo-input' placeholder="Insert a new Todo"></input>
+            <button className='add-button'>Add</button>
         </form>
     )
 }

@@ -5,9 +5,14 @@ export type Todo = {
 };
 
 export type TodoItemProps = {
-    todo: Todo
+    todo: Todo;
 }
 
-export type TodoListProps={
+export type TodoListProps = {
     todos: Todo[];
+}
+
+export type TodoSummaryProps = {
+    completedTodosAmount: number;
+    totalTodosAmount: number;
 }
