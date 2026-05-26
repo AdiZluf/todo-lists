@@ -4,7 +4,7 @@ import type { TodoFormProps } from '../../types/todo';
 
 export function TodoForm({ handleAddTodo }: TodoFormProps) {
     const [inputValue, setInputValue] = useState("");
-
+  
     return (
         <form className="todo-form"
             onSubmit={(event) => {
