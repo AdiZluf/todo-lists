@@ -24,11 +24,17 @@ export default function App() {
     }])
   }
 
+  function handleRemoveTodo(id: string) {
+    setTodo((prev) =>
+      prev.filter((todo) => todo.id !== id)
+    );
+  }
+
   return (
     <div className="todo-app">
       <TodoHeader></TodoHeader>
       <TodoFilter></TodoFilter>
-      <TodoList todos={todos} handleToggleTodo={handleToggleTodo}></TodoList>
+      <TodoList todos={todos} handleToggleTodo={handleToggleTodo} handleRemoveTodo={handleRemoveTodo}></TodoList>
       <TodoForm handleAddTodo={handleAddTodo}></TodoForm>
       <TodoSummary totalTodosAmount={todosAmount} completedTodosAmount={completedTodosAmount} ></TodoSummary>
     </div>

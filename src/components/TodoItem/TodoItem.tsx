@@ -1,7 +1,7 @@
 import type { TodoItemProps } from "../../types/todo";
 import './TodoItem.css'
 
-export function TodoItem({ todo, handleToggleTodo }: TodoItemProps) {
+export function TodoItem({ todo, handleToggleTodo, handleRemoveTodo }: TodoItemProps) {
     return (
         <li className="todo-body">
             <div className="todo-left">
@@ -10,7 +10,7 @@ export function TodoItem({ todo, handleToggleTodo }: TodoItemProps) {
                 <p className={`todo-text ${todo.completed ? "completed-text" : ""
                     }`}> {todo.text}</p>
             </div>
-            <button className="remove-todo">Remove</button>
+            <button className="remove-todo" onClick={() => handleRemoveTodo(todo.id)}>Remove</button>
         </li>
     )
 }
